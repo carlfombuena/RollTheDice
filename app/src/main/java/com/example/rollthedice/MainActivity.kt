@@ -22,32 +22,19 @@ class MainActivity : AppCompatActivity() {
     private fun rollDice() {
     //Create new Dice object with 6 sides and roll it
         val dice = Dice(6)
+    val secondDice=Dice(6)
         val diceRoll = dice.roll()
-    //Update the textview element with the dice roll
+        val secondDiceRoll=secondDice.roll()
+        val diceArray= arrayOf("⚀","⚁","⚂","⚃","⚄","⚅")
+    //Tracking the textview element with the dice roll
     val showtext: TextView = findViewById(R.id.textView)
-    //Conditional Statement to alter textview element to show typeface dice
-    if(diceRoll==1){
-        showtext.text = "⚀"
-    }else if (diceRoll==2)
-    {
-        showtext.text = "⚁"
-    }
-    else if (diceRoll==3)
-    {
-        showtext.text = "⚂"
-    }
-    else if (diceRoll==4)
-    {
-        showtext.text = "⚃"
-    }
-    else if (diceRoll==5)
-    {
-        showtext.text = "⚄"
-    }
-    else
-    {
-        showtext.text = "⚅"
-    }
+    val showtext2: TextView = findViewById(R.id.textView2)
+    //Using an Array to contain dice typetext and then index it using rolled number
+    //Array starts to one so applied a negative 1 to reach 0 index and 5th index
+    showtext.text=diceArray[diceRoll-1]
+    showtext2.text=diceArray[secondDiceRoll-1]
+
+
 
     }
 }
